@@ -1,7 +1,8 @@
 class Character():
 	ability, dirtyAbility
-	currState
 	equipWeapon, equipAccessory
+	currState
+	skillList, currUsingSkill
 
 	def OnDead():
 		pass
@@ -9,7 +10,12 @@ class Character():
 	def OnStateChanged():
 		pass
 
-	def OnSkillUsed():
+	def OnSkillStart(skill, targets):
+		skill.OnStart(this, targets)
+		currUsingSkill = skill
+		pass
+
+	def OnSkillEnd():
 		pass
 
 	def OnUpdate():
@@ -17,6 +23,8 @@ class Character():
 
 		for buff in buffList:
 			buff.OnUpdate(this)
+
+		currUsingSkill.OnUpdate()
 
 		pass
 

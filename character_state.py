@@ -24,6 +24,5 @@ class CharacterStateIdle(CharacterState):
 			if len(targets) == 0:
 				continue
 
-			skill.Start(this.owner, targets)
-			this.owner.OnSkillUsed()
+			this.owner.OnSkillStart(skill, targets)
 	pass

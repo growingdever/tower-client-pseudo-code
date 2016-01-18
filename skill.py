@@ -3,8 +3,13 @@ class Skill():
 	useConditionSubject, useCondition, useConditionValue
 	targetConditionSubject, targetCondition, targetConditionDetail
 	additionalHitResultCondition, additionalHitResultConditionValue
+	owner
+	targets
 
-	def OnStart():
+	def OnStart(owner, targets):
+		this.owner = owner
+		this.targets = targets
+		delay = originCooltime
 		pass
 
 	def OnEnd():

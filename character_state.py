@@ -25,4 +25,5 @@ class CharacterStateIdle(CharacterState):
 				continue
 
 			skill.Start(this.owner, targets)
+			this.owner.OnSkillUsed()
 	pass

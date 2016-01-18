@@ -1,6 +1,7 @@
 class Character():
 	ability, dirtyAbility
 	currState
+	equipWeapon, equipAccessory
 
 	def OnDead():
 		pass
@@ -26,8 +27,8 @@ class Character():
 			if buff.type == 'UPGRADE':
 				buff.apply(dirtyAbility)
 
-		for equipment in equipments:
-			equipment.apply(dirtyAbility)
+		equipWeapon.apply(dirtyAbility)
+		equipAccessory.apply(dirtyAbility)
 
 	def OnSendHitResult(hitResult):
 		for buff in buffList:

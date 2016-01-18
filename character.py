@@ -13,18 +13,28 @@ class Character():
 	def OnSkillStart(skill, targets):
 		skill.OnStart(this, targets)
 		currUsingSkill = skill
+
+		if skill.type == 'NORMAL_ATTACK':
+			for skill in skillList:
+				if skill.type == 'NORMAL_ATTACK':
+					skill.cooltime = skill.originCooltime
 		pass
 
 	def OnSkillEnd():
 		pass
 
-	def OnUpdate():
-		currState.OnUpdate(this)
+	def OnUpdate(dt):
+		currState.OnUpdate(this, dt)
 
 		for buff in buffList:
-			buff.OnUpdate(this)
+			buff.OnUpdate(this, dt)
 
-		currUsingSkill.OnUpdate()
+		for skill in skillList:
+			skill.cooltime -= dt
+			if skill.cooltime < 0:
+				skill.cooltime = 0
+
+		currUsingSkill.OnUpdate(dt)
 
 		pass
 

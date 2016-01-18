@@ -1,13 +1,11 @@
 class CharacterState():
-	owner
-
 	def OnUpdate(character):
 		pass
 	pass
 
 
 class CharacterStateIdle(CharacterState):
-	def OnUpdate(character):
+	def OnUpdate(character, dt):
 		base.OnUpdate(character)
 
 		for skill in character.skillList:

@@ -1,21 +1,26 @@
 class Skill():
-	time, delay, interval
+	time, cooltime
 	useConditionSubject, useCondition, useConditionValue
 	targetConditionSubject, targetCondition, targetConditionDetail
 	additionalHitResultCondition, additionalHitResultConditionValue
 	owner
 	targets
 
+	hitResults
+
 	def OnStart(owner, targets):
 		this.owner = owner
 		this.targets = targets
-		delay = originCooltime
+		this.cooltime = originCooltime
+
+		GenerateHitResults()
+
 		pass
 
 	def OnEnd():
 		pass
 
-	def OnUpdate():
+	def OnUpdate(dt):
 		pass
 
 	def OnCanceled():
@@ -23,3 +28,6 @@ class Skill():
 
 	def OnFire():
 		pass
+
+	def GenerateHitResults():
+		generate hit results by skill data
